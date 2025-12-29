@@ -1,4 +1,4 @@
-const AppError = require("../utils/appError")
+const AppError = require("../utils/AppError")
 const Comment = require("../models/comments.model")
 const catchAsync = require("../utils/catchAsync.js")
 
@@ -42,6 +42,8 @@ const deleteComment = catchAsync(async (req, res, next) => {
     if (!comment) {
         return next(new AppError("Comment not found", 404))
     }
+    
+    
 
     await Comment.findByIdAndDelete(id);
 
